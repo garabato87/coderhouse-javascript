@@ -39,8 +39,7 @@ const planesDeEntrenamiento = [
             "\n 3. Ejercicios Complementarios (3 series de 8-10 repeticiones)",
             "\n Remo con Barra (Barbell Row): 3 series de 8-10 repeticiones",
             "\n Elevaciones de Talones (Calf Raises): 3 series de 10-12 repeticiones",
-            "\n Fondos en Paralelas (Dips): 3 series de 8-10 repeticiones (puedes usar peso adicional si es necesario)",
-            
+            "\n Fondos en Paralelas (Dips): 3 series de 8-10 repeticiones (puedes usar peso adicional si es necesario)",  
         ]
     },
     {
@@ -56,9 +55,13 @@ const planesDeEntrenamiento = [
 const seleccionarPlan = () => {
     // Construir el mensaje para el prompt
     let mensaje = "Seleccione un plan de entrenamiento:\n";
-    planesDeEntrenamiento.forEach((plan, index) => {
+    for (let i=0; i<planesDeEntrenamiento.length; i++){
+        mensaje += `${i + 1}. ${planesDeEntrenamiento[i].nombre}\n`
+        //mensaje += (index + 1) + ". " + planDeEntrenamiento[i].nombre + "\n"; === otra forma de escribirlo
+    }
+    /*planesDeEntrenamiento.forEach((plan, index) => {
         mensaje += `${index + 1}. ${plan.nombre}\n`;
-    });
+    });*/
 
     // Solicitar al usuario la selección del plan
     
@@ -75,7 +78,6 @@ let eleccion
             alert("Selección no válida. Por favor, elija un número válido.");
         }
     }while (isNaN(eleccion) || eleccion <=0 || eleccion > planesDeEntrenamiento.length ) 
-    
 };
 
 let confirmacion
