@@ -2,11 +2,19 @@ let nombre, altura, peso, genero, mensaje
 
 function datosUsuario  ()  {
     nombre = prompt("Por favor ingrese su nombre y apellido")
-    altura = (parseFloat(prompt(nombre + " ingrese su altura en metros")))
-    peso = (parseFloat(prompt(nombre + " ingrese su peso en kg")))
+
+    do {
+        altura = (parseFloat(prompt(nombre + " ingrese su altura en metros")))
+    }while (isNaN(altura))
+
+    do{
+        peso = (parseFloat(prompt(nombre + " ingrese su peso en kg")))
+    }while(isNaN(peso))
+
     do {
         genero = prompt("Ingrese una 'M' para masculino, 'F' para femenino").toLowerCase();
     } while (genero !== 'm' && genero !== 'f');
+    
     switch (genero){
         case "m" :
             mensaje = "Bienvenido " + nombre + "!"
@@ -44,11 +52,42 @@ const planesDeEntrenamiento = [
     },
     {
         nombre: 'Resistencia',
-        descripcion: 'Plan diseñado para mejorar la resistencia cardiovascular y muscular con ejercicios prolongados y de menor intensidad.'
+        descripcion: 'Plan diseñado para mejorar la resistencia cardiovascular y muscular con ejercicios prolongados y de menor intensidad.',
+        ejercicios : [
+            "\n Caminata rápida o trote suave: 5-10 minutos.",
+            "\n Movilidad articular: rango de movimiento para hombros, caderas y rodillas.",
+            "\n Ejercicios Principales (3-4 series de 12-15 repeticiones)",
+            "\n Sentadilla con barra (Back Squat): 4 series de 12-15 repeticiones",
+            "\n Press de banca (Bench Press): 4 series de 12-15 repeticiones",
+            "\n Peso muerto (Deadlift): 4 series de 12-15 repeticiones",
+            "\n Dominadas asistidas (Pull-Ups con bandas o máquina): 4 series de 10-12 repeticiones",
+            "\n Press militar con barra (Overhead Press): 3 series de 12-15 repeticiones",
+            "\n Ejercicios Complementarios (3 series de 15-20 repeticiones)",
+            "\n Remo con barra (Barbell Row): 3 series de 15-20 repeticiones",
+            "\n Elevaciones de talones (Calf Raises): 3 series de 15-20 repeticiones ",
+            "\n Fondos en paralelas (Dips): 3 series de 12-15 repeticiones",
+        ]
     },
     {
         nombre: 'Hipertrofia',
-        descripcion: 'Plan orientado a incrementar el tamaño muscular mediante ejercicios con repeticiones moderadas y pesos controlados.'
+        descripcion: 'Plan orientado a incrementar el tamaño muscular mediante ejercicios con repeticiones moderadas y pesos controlados.',
+        ejercicios:[
+            "\n Calentamiento: 10-15 minutos",
+            "\n Caminata rápida o trote suave: 5-10 minutos.",
+            "\n Movilidad articular: rango de movimiento para hombros, caderas y rodillas.",
+            "\n Ejercicios Principales (4 series de 8-12 repeticiones)",
+            "\n Sentadilla con barra (Back Squat): 4 series de 8-12 repeticiones",
+            "\n Press de banca con barra (Bench Press): 4 series de 8-12 repeticiones",
+            "\n Peso muerto (Deadlift): 4 series de 8-10 repeticiones",
+            "\n Dominadas (Pull-Ups con peso adicional o libres): 4 series de 8-10 repeticiones",
+            "\n Press militar con barra (Overhead Press): 3 series de 8-12 repeticiones",
+            "\n Ejercicios Complementarios (3 series de 10-15 repeticiones)",
+            "\n Remo con barra (Barbell Row): 3 series de 10-12 repeticiones",
+            "\n Elevaciones laterales con mancuernas (Lateral Raises): 3 series de 12-15 repeticiones",
+            "\n Fondos en paralelas (Dips): 3 series de 10-12 repeticiones",
+            "\n Curl de bíceps con barra: 3 series de 12-15 repeticiones",
+            "\n Extensión de tríceps en polea: 3 series de 12-15 repeticiones"
+        ]
     }
 ];
 
@@ -82,13 +121,14 @@ let eleccion
 
 let confirmacion
 do{
-    datosUsuario()
-    let imc = datosUsuario().toFixed(2) //.toFixed(2) sirve para mostrar solo dos decimales
+    let imc = datosUsuario().toFixed(2)
+    //.toFixed(2) sirve para mostrar solo dos decimales
     alert("Su imc actual es: " + imc)
     // Llamar a la función para que el usuario elija un plan
     seleccionarPlan()
     confirmacion = confirm("¿Desea reiniciar el programa?")
 }while(confirmacion)
+
 
 
 
