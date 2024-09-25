@@ -1,0 +1,19 @@
+.link-nav {
+    justify-content: flex-end;
+}
+
+/*query*/
+.selector {
+    padding: 20px;
+}
+@media (min-width: 768px){
+    .selector {
+        display: flex;
+        justify-content: center;
+        .selection {
+            width: 30%;
+        }
+    }
+}
+
+    
